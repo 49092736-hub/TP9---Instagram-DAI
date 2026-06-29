@@ -17,5 +17,5 @@ app.post('/login', validateLogin, igController.login);
 app.post('/publicaciones', requireAuth, validateCreatePublicacion, igController.createPublicacion);
 
 // Ruta PROTEGIDA - obtener mis publicaciones
-app.get('/mis-publicaciones', requireAuth, igController.getMyPublicaciones);
+app.get('/perfil', requireAuth, igController.getMyPublicaciones);
   }

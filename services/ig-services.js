@@ -1,9 +1,15 @@
-import pool from '../config/db.js';
+const pool = require('../config/db');
+const jwt = require('jsonwebtoken');
 
 class IgService {
-  constructor() {
-    this.pool = pool;
+  constructor(poolInstance) {
+    // Si se pasa pool como parámetro (inyección de dependencias), usarlo
+    // Si no, usar el pool importado directamente
+    this.pool = poolInstance || pool;
   }
+
+  // ============ USUARIOS ============
+
   async registerUser(userData) {
     const { nombre_completo, nombre_usuario, email, password, foto_perfil, biografia } = userData;
 
@@ -23,7 +29,19 @@ class IgService {
         biografia || null
       ]);
 
-      return result.rows[0];
+      const usuario = result.rows[0];
+      
+      // Generar JWT
+      const token = jwt.sign(
+        { id: usuario.id, email: usuario.email },
+        process.env.JWT_SECRET,
+        { expiresIn: process.env.JWT_EXPIRATION || '24h' }
+      );
+      
+      return {
+        usuario,
+        token
+      };
     } catch (error) {
       throw new Error(`Error al registrar usuario: ${error.message}`);
     }
@@ -38,9 +56,25 @@ class IgService {
 
     try {
       const result = await this.pool.query(query, [email, password]);
-      return result.rows[0] || null;
+      if (!result.rows[0]) {
+        throw new Error('Credenciales inválidas');
+      }
+      
+      const usuario = result.rows[0];
+      
+      // Generar JWT
+      const token = jwt.sign(
+        { id: usuario.id, email: usuario.email },
+        process.env.JWT_SECRET,
+        { expiresIn: process.env.JWT_EXPIRATION || '24h' }
+      );
+      
+      return {
+        usuario,
+        token
+      };
     } catch (error) {
-      throw new Error(`Error al iniciar sesión: ${error.message}`);
+      throw error;
     }
   }
 
@@ -53,6 +87,21 @@ class IgService {
 
     try {
       const result = await this.pool.query(query, [id]);
+      return result.rows[0] || null;
+    } catch (error) {
+      throw new Error(`Error al obtener usuario: ${error.message}`);
+    }
+  }
+
+  async getUserByUsername(nombre_usuario) {
+    const query = `
+      SELECT id, nombre_completo, nombre_usuario, email, foto_perfil, biografia
+      FROM usuarios
+      WHERE nombre_usuario = $1
+    `;
+
+    try {
+      const result = await this.pool.query(query, [nombre_usuario]);
       return result.rows[0] || null;
     } catch (error) {
       throw new Error(`Error al obtener usuario: ${error.message}`);
@@ -177,6 +226,6 @@ class IgService {
   }
 }
 
-module.exports = IgRepository;
+module.exports = IgService;
 
 

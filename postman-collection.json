@@ -1,0 +1,438 @@
+{
+  "info": {
+    "name": "Instagram API TP9",
+    "description": "Colección de pruebas para API Instagram con datos de ejemplo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "REGISTRO",
+      "item": [
+        {
+          "name": "Registrar - Juan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_completo\": \"Juan Pérez García\",\n  \"nombre_usuario\": \"juanp\",\n  \"email\": \"juan@gmail.com\",\n  \"password\": \"securePass123\",\n  \"foto_perfil\": \"https://i.pravatar.cc/300?img=1\",\n  \"biografia\": \"Fanatico de los gatos y la programación\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/registro",
+              "host": ["{{base_url}}"],
+              "path": ["registro"]
+            }
+          }
+        },
+        {
+          "name": "Registrar - María",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_completo\": \"María González López\",\n  \"nombre_usuario\": \"mariag\",\n  \"email\": \"maria@gmail.com\",\n  \"password\": \"securePass456\",\n  \"foto_perfil\": \"https://i.pravatar.cc/300?img=2\",\n  \"biografia\": \"Cat lover 🐱\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/registro",
+              "host": ["{{base_url}}"],
+              "path": ["registro"]
+            }
+          }
+        },
+        {
+          "name": "Registrar - Lucas",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_completo\": \"Lucas Fernández Martín\",\n  \"nombre_usuario\": \"lucasf\",\n  \"email\": \"lucas@gmail.com\",\n  \"password\": \"securePass789\",\n  \"foto_perfil\": \"https://i.pravatar.cc/300?img=3\",\n  \"biografia\": \"Desarrollador Full Stack\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/registro",
+              "host": ["{{base_url}}"],
+              "path": ["registro"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "LOGIN",
+      "item": [
+        {
+          "name": "Login - Juan (válido)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan@gmail.com\",\n  \"password\": \"securePass123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            }
+          }
+        },
+        {
+          "name": "Login - María (válido)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"maria@gmail.com\",\n  \"password\": \"securePass456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            }
+          }
+        },
+        {
+          "name": "Login - Credenciales inválidas (ERROR)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan@gmail.com\",\n  \"password\": \"wrongPassword\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            }
+          }
+        },
+        {
+          "name": "Login - Sin email (ERROR)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"securePass123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "VALIDACIONES ERROR",
+      "item": [
+        {
+          "name": "Registro - Email inválido (ERROR)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_completo\": \"Test Usuario\",\n  \"nombre_usuario\": \"testuser\",\n  \"email\": \"emailInvalido\",\n  \"password\": \"securePass123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/registro",
+              "host": ["{{base_url}}"],
+              "path": ["registro"]
+            }
+          }
+        },
+        {
+          "name": "Registro - Contraseña muy corta (ERROR)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_completo\": \"Test Usuario\",\n  \"nombre_usuario\": \"testuser2\",\n  \"email\": \"test@gmail.com\",\n  \"password\": \"123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/registro",
+              "host": ["{{base_url}}"],
+              "path": ["registro"]
+            }
+          }
+        },
+        {
+          "name": "Registro - Username con espacios (ERROR)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_completo\": \"Test Usuario\",\n  \"nombre_usuario\": \"test user\",\n  \"email\": \"test@gmail.com\",\n  \"password\": \"securePass123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/registro",
+              "host": ["{{base_url}}"],
+              "path": ["registro"]
+            }
+          }
+        },
+        {
+          "name": "Registro - Campo faltante (ERROR)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre_completo\": \"Test\",\n  \"email\": \"test@gmail.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/registro",
+              "host": ["{{base_url}}"],
+              "path": ["registro"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PERFIL",
+      "item": [
+        {
+          "name": "Ver mi perfil (token requerido)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfil",
+              "host": ["{{base_url}}"],
+              "path": ["perfil"]
+            }
+          }
+        },
+        {
+          "name": "Ver perfil de otro usuario",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/perfil/mariag",
+              "host": ["{{base_url}}"],
+              "path": ["perfil", "mariag"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar perfil (token requerido)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"biografia\": \"Actualicé mi biografía\",\n  \"foto_perfil\": \"https://i.pravatar.cc/300?img=10\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfil",
+              "host": ["{{base_url}}"],
+              "path": ["perfil"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PUBLICACIONES",
+      "item": [
+        {
+          "name": "Crear publicación (token requerido)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url_imagen\": \"https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg\",\n  \"descripcion\": \"Mi gato disfrutando del sol en la terraza\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/publicaciones",
+              "host": ["{{base_url}}"],
+              "path": ["publicaciones"]
+            }
+          }
+        },
+        {
+          "name": "Obtener todas las publicaciones (feed)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/publicaciones?page=1&limit=20",
+              "host": ["{{base_url}}"],
+              "path": ["publicaciones"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mis publicaciones (token requerido)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mis-publicaciones",
+              "host": ["{{base_url}}"],
+              "path": ["mis-publicaciones"]
+            }
+          }
+        },
+        {
+          "name": "Publicaciones de usuario",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/publicaciones/1",
+              "host": ["{{base_url}}"],
+              "path": ["publicaciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "Like en publicación (token requerido)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/publicaciones/1/like",
+              "host": ["{{base_url}}"],
+              "path": ["publicaciones", "1", "like"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar publicación (token requerido)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/publicaciones/1",
+              "host": ["{{base_url}}"],
+              "path": ["publicaciones", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "registro": [
+    {
+      "nombre_completo": "Juan Pérez García",
+      "nombre_usuario": "juanp",
+      "email": "juan@gmail.com",
+      "password": "securePass123",
+      "foto_perfil": "https://i.pravatar.cc/300?img=1",
+      "biografia": "Fanatico de los gatos y la programación"
+    },
+    {
+      "nombre_completo": "María González López",
+      "nombre_usuario": "mariag",
+      "email": "maria@gmail.com",
+      "password": "securePass456",
+      "foto_perfil": "https://i.pravatar.cc/300?img=2",
+      "biografia": "Cat lover 🐱"
+    },
+    {
+      "nombre_completo": "Lucas Fernández Martín",
+      "nombre_usuario": "lucasf",
+      "email": "lucas@gmail.com",
+      "password": "securePass789",
+      "foto_perfil": "https://i.pravatar.cc/300?img=3",
+      "biografia": "Desarrollador Full Stack"
+    },
+    {
+      "nombre_completo": "Sofía Martínez Argentina",
+      "nombre_usuario": "sofiam",
+      "email": "sofia@gmail.com",
+      "password": "passWord2024",
+      "foto_perfil": "https://i.pravatar.cc/300?img=4",
+      "biografia": "Fotografa de gatos profesional"
+    },
+    {
+      "nombre_completo": "Carlos Eduardo López",
+      "nombre_usuario": "carlosedu",
+      "email": "carlos@gmail.com",
+      "password": "myPassword321",
+      "foto_perfil": "https://i.pravatar.cc/300?img=5",
+      "biografia": "React & Node.js Developer"
+    }
+  ],
+  "login": [
+    {
+      "email": "juan@gmail.com",
+      "password": "securePass123",
+      "descripcion": "Login usuario Juan"
+    },
+    {
+      "email": "maria@gmail.com",
+      "password": "securePass456",
+      "descripcion": "Login usuario María"
+    },
+    {
+      "email": "lucas@gmail.com",
+      "password": "securePass789",
+      "descripcion": "Login usuario Lucas"
+    },
+    {
+      "email": "sofia@gmail.com",
+      "password": "passWord2024",
+      "descripcion": "Login usuario Sofía"
+    },
+    {
+      "email": "carlos@gmail.com",
+      "password": "myPassword321",
+      "descripcion": "Login usuario Carlos"
+    },
+    {
+      "email": "usuario_inexistente@gmail.com",
+      "password": "wrongPassword123",
+      "descripcion": "Login con credenciales inválidas (error esperado)"
+    }
+  ],
+  "publicaciones": [
+    {
+      "url_imagen": "https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg",
+      "descripcion": "Mi gato disfrutando del sol en la terraza"
+    },
+    {
+      "url_imagen": "https://cdn2.thecatapi.com/images/bpc.jpg",
+      "descripcion": "La mejor siesta del mundo después de jugar todo el día"
+    },
+    {
+      "url_imagen": "https://cdn2.thecatapi.com/images/9j5.jpg",
+      "descripcion": "Siempre me acompaña mientras programo en la oficina"
+    },
+    {
+      "url_imagen": "https://cdn2.thecatapi.com/images/6tb.jpg",
+      "descripcion": "Posando para la foto con actitud de modelo"
+    },
+    {
+      "url_imagen": "https://cdn2.thecatapi.com/images/c2b.jpg",
+      "descripcion": "Modo descanso activado después de una larga jornada"
+    }
+  ]
+}
